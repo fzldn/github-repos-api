@@ -23,7 +23,7 @@ After you installing docker on your local, follow these commands below:
 
 1. install dependencies
     ```
-    docker-compose exec app composer install
+    composer install
     ```
 1. run local development server
     ```
