@@ -24,6 +24,14 @@ class GithubRepoController extends Controller
     /**
      * List all github repositories with the topic "php"
      *
+     * @SWG\Get(
+     *  path="/php",
+     *  tags={"Github Repo"},
+     *  @SWG\Parameter(ref="#/parameters/page_in_query"),
+     *  @SWG\Parameter(ref="#/parameters/per_page_in_query"),
+     *  @SWG\Response(response=200, description="Success"),
+     * )
+     *
      * @param \App\Http\Requests\Api\GithubRepo\IndexPhpRequest $request
      * @return \Illuminate\Http\Response
      */
@@ -39,6 +47,15 @@ class GithubRepoController extends Controller
 
     /**
      * List all github repositories with the topic "php" sorted by popularity (stargazers_count)
+     *
+     * @SWG\Get(
+     *  path="/popularity/php",
+     *  tags={"Github Repo"},
+     *  @SWG\Parameter(ref="#/parameters/page_in_query"),
+     *  @SWG\Parameter(ref="#/parameters/per_page_in_query"),
+     *  @SWG\Parameter(ref="#/parameters/order_in_query"),
+     *  @SWG\Response(response=200, description="Success"),
+     * )
      *
      * @param \App\Http\Requests\Api\GithubRepo\IndexPopularityRequest $request
      * @return \Illuminate\Http\Response
@@ -56,6 +73,15 @@ class GithubRepoController extends Controller
 
     /**
      * List all github repositories with the topic "php" sorted by activity (updated_at)
+     *
+     * @SWG\Get(
+     *  path="/activity/php",
+     *  tags={"Github Repo"},
+     *  @SWG\Parameter(ref="#/parameters/page_in_query"),
+     *  @SWG\Parameter(ref="#/parameters/per_page_in_query"),
+     *  @SWG\Parameter(ref="#/parameters/order_in_query"),
+     *  @SWG\Response(response=200, description="Success"),
+     * )
      *
      * @param \App\Http\Requests\Api\GithubRepo\IndexActivityRequest $request
      * @return \Illuminate\Http\Response
