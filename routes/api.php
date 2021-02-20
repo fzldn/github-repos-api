@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\GithubRepoController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/php', [GithubRepoController::class, 'php']);
+Route::get('/popularity/php', [GithubRepoController::class, 'popularity']);
+Route::get('/activity/php', [GithubRepoController::class, 'activity']);
