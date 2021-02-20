@@ -1,0 +1,119 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Github Repo API",
+        "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/php": {
+            "get": {
+                "tags": [
+                    "Github Repo"
+                ],
+                "summary": "List all github repositories with the topic \"php\"",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/page_in_query"
+                    },
+                    {
+                        "$ref": "#/parameters/per_page_in_query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/popularity/php": {
+            "get": {
+                "tags": [
+                    "Github Repo"
+                ],
+                "summary": "List all github repositories with the topic \"php\" sorted by popularity (stargazers_count)",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/page_in_query"
+                    },
+                    {
+                        "$ref": "#/parameters/per_page_in_query"
+                    },
+                    {
+                        "$ref": "#/parameters/order_in_query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/activity/php": {
+            "get": {
+                "tags": [
+                    "Github Repo"
+                ],
+                "summary": "List all github repositories with the topic \"php\" sorted by activity (updated_at)",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/page_in_query"
+                    },
+                    {
+                        "$ref": "#/parameters/per_page_in_query"
+                    },
+                    {
+                        "$ref": "#/parameters/order_in_query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "parameters": {
+        "page_in_query": {
+            "name": "page",
+            "in": "query",
+            "description": "Page number of the results to fetch.",
+            "type": "integer",
+            "default": 1
+        },
+        "per_page_in_query": {
+            "name": "per_page",
+            "in": "query",
+            "description": "Results per page.",
+            "type": "integer",
+            "default": 15
+        },
+        "order_in_query": {
+            "name": "order",
+            "in": "query",
+            "description": "Determines whether the first search result returned is the highest number of matches (desc) or lowest number of matches (asc).",
+            "type": "string",
+            "default": "desc",
+            "enum": [
+                "asc",
+                "desc"
+            ]
+        }
+    },
+    "tags": [
+        {
+            "name": "Github Repo",
+            "description": "Github Repositories with topic:php"
+        }
+    ]
+}
